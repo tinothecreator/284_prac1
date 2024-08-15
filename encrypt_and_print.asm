@@ -3,6 +3,7 @@
 ; Group member 02: Name_Surname_student-nr
 ; Group member 03: Name_Surname_student-nr
 ; ==========================
+; you can use printf - lecture 7 functions
 
 section .data
     fmt db "%c", 0

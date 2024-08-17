@@ -6,7 +6,7 @@
 
 section .data
     ; ==========================
-    ; Your data goes here
+    message db "Welcome agent. What do you want to do, Encrypt [1] or Decrypt [2]? ", 0
     ; ==========================
 
 section .text
@@ -15,7 +15,11 @@ section .text
 greeting:
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
-    ; Your code goes here
+    mov rax, 1                  
+    mov rdi, 1                  
+    mov rsi, message            
+    mov rdx, 68                 
+    syscall   
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing
 

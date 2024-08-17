@@ -6,7 +6,7 @@
 
 section .bss
     ; ==========================
-    ; Your data goes here
+    user_input resb 1 
     ; ==========================
 
 section .text
@@ -19,7 +19,11 @@ get_user_choice:
     call greeting
 
     ; ==========================
-    ; Your data goes here
+    mov rax, 0                 
+    mov rdi, 0                  
+    mov rsi, user_input         ; address of buffer to store input
+    mov rdx, 1                  
+    syscall     
     ; ==========================
     ; Do not modify anything below this line unless you know what you are doing 
     ret

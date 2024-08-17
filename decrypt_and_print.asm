@@ -3,20 +3,15 @@
 ; Group member 02: Name_Surname_student-nr
 ; Group member 03: Name_Surname_student-nr
 ; ==========================
-
-; Input: 4 values passed to your program (function).
-; Output: Display the message: `The plaintext is: `
-; Function returns: Nothing (Preferebly 0, but this does not matter for this prac).
-; Output snippet:
-; • I call your function like this: `decrypt_and_print(1930506807, 1930507047 , 1930506823, 1930506807)`, you output:
-
-; The plaintext is: TEST
+section .bss
+    output resb 4
 
 section .data
     fmt db "%c", 0
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
-    message db "The plaintext is: ",0
+    ; Your data goes here
+    msg db "The plaintext is: ",
     ; ==========================
 
 section .text
@@ -35,44 +30,53 @@ print_char_32:
 decrypt_and_print:
     ; Do not modify anything above this line unless you know what you are doing
     ; ==========================
+    ; Your code goes here
+    ; ==========================
 
-    ; Print the message "The plaintext is: "
-    mov rdi, message
-    xor rax, rax
-    call printf
 
-    ; Load the first argument
-    mov rax, rdi
+    ; save rdi, rsi, rcx
+    mov r15, rdi
+    mov r14, rsi
+    mov r13, rdx
+    mov r12, rcx
+
+
+    ; print
+    mov rax, 1 ; syscall for write
+    mov rdi, 1 ; stdout handle
+    mov rsi, msg ; pointer to first character
+    mov rdx, 18   ; number of bytes to write
+    syscall
+
+    ;pop rdi
+    mov rax, r15
     call decrypt_char
     call print_char_32
 
-    ; Load the second argument
-    mov rax, rsi
+    ;pop rsi
+    mov rax, r14
     call decrypt_char
     call print_char_32
 
-    ; Load the third argument
-    mov rax, rdx
+    ;pop rdx
+    mov rax, r13
     call decrypt_char
     call print_char_32
 
-    ; Load the fourth argument
-    mov rax, rcx
+    ;pop rcx
+    mov rax, r12
     call decrypt_char
     call print_char_32
 
+    ; Do not modify anything below this line unless you know what you are doing
 
     ret
 
 decrypt_char:
-    ; Rotate Right by 4 Bits.
-    ; XOR with 0x73113777.
-
     ror rax, 4
-    
     xor rax, 0x73113777
-    
+
     ; The resulting character is in the lowest 8 bits of rax
     and rax, 0xFF
-    
+
     ret

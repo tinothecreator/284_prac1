@@ -25,10 +25,10 @@ extern printf
 
 ;When using the below function, be sure to place whatever you want to print in the rax register first
 print_char_32:
-    mov rsi, rax
-    mov rdi, fmt
-    xor rax, rax
-    call printf
+    mov rsi, rax        ; Move character to rsi
+    mov rdi, fmt        ; Move format string to rdi
+    xor rax, rax        ; Clear rax
+    call printf         ; Call printf
     ret
 
 encrypt_and_print:

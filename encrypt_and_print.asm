@@ -1,6 +1,6 @@
 ; ==========================
-; Group member 01: Name_Surname_student-nr
-; Group member 02: Name_Surname_student-nr
+; Group member 01: 
+; Group member 02: Tinotenda_Chirozvi_22547747
 ; Group member 03: Name_Surname_student-nr
 ; ==========================
 ; you can use printf - lecture 7 functions

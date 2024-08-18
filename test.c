@@ -39,6 +39,7 @@ void test_get_user_choice(void) {
     }
 }
 
+
 void test_encrypt_and_print(void) {
     char input_buffer[100];
     char input[] = "TEST";
@@ -55,6 +56,24 @@ void test_encrypt_and_print(void) {
     }
     printf("Encryption Failed\n");
 }
+
+
+// void test_encrypt_and_print(void) {
+//     char input_buffer[100];
+//     char input[] = "TEST";
+//     printf("Original: %s\n", input);
+//     encrypt_and_print(input);
+//     printf("\nEnter encrypted values (space-separated): ");
+//     if (fgets(input_buffer, sizeof(input_buffer), stdin) == NULL) {
+//         printf("Failed to read input.\n");
+//         return;
+//     }
+//     if(containsSubstring("1930506807 1930507047 1930506823 1930506807", input_buffer)) {
+//         printf("Encryption Succeeded\n");
+//         return;
+//     }
+//     printf("Encryption Failed\n");
+// }
 
 // void test_encrypt_and_print(void) {
 //     char input[] = "TEST";

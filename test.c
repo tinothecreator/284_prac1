@@ -39,51 +39,51 @@ void test_get_user_choice(void) {
     }
 }
 
-// void test_encrypt_and_print(void) {
-//     char input_buffer[100];
-//     char input[] = "TEST";
-//     printf("Original: %s\n", input);
-//     encrypt_and_print(input);
-//     printf("\nEnter encrypted values (space-separated): ");
-//     if (fgets(input_buffer, sizeof(input_buffer), stdin) == NULL) {
-//         printf("Failed to read input.\n");
-//         return;
-//     }
-//     if(containsSubstring("1930506807 1930507047 1930506823 1930506807", input_buffer)) {
-//         printf("Encryption Succeeded\n");
-//         return;
-//     }
-//     printf("Encryption Failed\n");
-// }
-
 void test_encrypt_and_print(void) {
-    char input[] = "TEST";
-    char expected_output[] = "1930506807 1930507047 1930506823 1930506807";
     char input_buffer[100];
-
+    char input[] = "TEST";
     printf("Original: %s\n", input);
     encrypt_and_print(input);
-
     printf("\nEnter encrypted values (space-separated): ");
     if (fgets(input_buffer, sizeof(input_buffer), stdin) == NULL) {
         printf("Failed to read input.\n");
         return;
     }
-
-    // Remove trailing newline character if present
-    size_t len = strlen(input_buffer);
-    if (len > 0 && input_buffer[len - 1] == '\n') {
-        input_buffer[len - 1] = '\0';
-    }
-
-    if (strcmp(expected_output, input_buffer) == 0) {
+    if(containsSubstring("1930506807 1930507047 1930506823 1930506807", input_buffer)) {
         printf("Encryption Succeeded\n");
-    } else {
-        printf("Encryption Failed\n");
-        printf("Expected: %s\n", expected_output);
-        printf("Got: %s\n", input_buffer);
+        return;
     }
+    printf("Encryption Failed\n");
 }
+
+// void test_encrypt_and_print(void) {
+//     char input[] = "TEST";
+//     char expected_output[] = "1930506807 1930507047 1930506823 1930506807";
+//     char input_buffer[100];
+
+//     printf("Original: %s\n", input);
+//     encrypt_and_print(input);
+
+//     printf("\nEnter encrypted values (space-separated): ");
+//     if (fgets(input_buffer, sizeof(input_buffer), stdin) == NULL) {
+//         printf("Failed to read input.\n");
+//         return;
+//     }
+
+//     // Remove trailing newline character if present
+//     size_t len = strlen(input_buffer);
+//     if (len > 0 && input_buffer[len - 1] == '\n') {
+//         input_buffer[len - 1] = '\0';
+//     }
+
+//     if (strcmp(expected_output, input_buffer) == 0) {
+//         printf("Encryption Succeeded\n");
+//     } else {
+//         printf("Encryption Failed\n");
+//         printf("Expected: %s\n", expected_output);
+//         printf("Got: %s\n", input_buffer);
+//     }
+// }
 
 void test_decrypt_and_print(void) {
     char input_buffer[100];

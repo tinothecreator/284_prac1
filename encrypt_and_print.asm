@@ -1,7 +1,7 @@
 ; ==========================
-; Group member 01: Name_Surname_student-nr
-; Group member 02: Tafara_Hwata_u22565991
-; Group member 03: Devan_Dewet_u05169098
+; Group member 01: Tinotenda_Chirozvi_22547747
+; Group member 02: Tafara_Hwata_22565991
+; Group member 03: Devan_Dewet_05169098
 ; ==========================
 ; you can use printf - lecture 7 functions
 
@@ -39,7 +39,7 @@ encrypt_and_print:
     xor rbx, rbx       ; Clear rbx, which will be used as an index
 
     encrypt_loop:
-    
+
     mov al, byte [rdi + rbx] ; Load one character into al
     rol al, 4                ; Rotate the character left by 4 bits
     movzx eax, al            ; Zero-extend the byte in al to a full register
